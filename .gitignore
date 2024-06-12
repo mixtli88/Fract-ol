@@ -2,3 +2,4 @@ bin/
 fractol
 lib/MLX42
 lib/libft/*.o
+.DS_Store
