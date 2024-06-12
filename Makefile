@@ -93,7 +93,7 @@ HEADERS			=	$(addprefix $(INCDIR)/, $(HEADER_FILES))
 LIBFT_DIR		=	${LIBDIR}/libft # variable que contiene el path hacia la libft
 BUILDLIB		=	make -C ${LIBFT_DIR}
 CLEANLIB		=	make clean -C ${LIBFT_DIR}
-MLX_DIR			=	#mismo que libft
+MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
 
 #LIBFT_NAME		=	libft.a
 #LIBFT_FLAGS		=	-L$(LIBFT_DIR) -lft -Wall -Wextra -Werror -g #-fsanitize=address
@@ -135,7 +135,7 @@ all			: ${NAME}
 
 ${NAME}		: ${BIN}
 	@${BUILDLIB}
-	@$(CC) ${CFLAGS} $(LIBFT_FLAGS) ${BIN} -o ${NAME}		#-----------------------nuevo------------//#
+	@$(CC) ${CFLAGS} $(LIBFT_FLAGS) $(MLX_DIR) ${BIN} -o ${NAME}		#-----------------------nuevo------------//#
 	@echo "${GREEN}${NAME} successfully created. 🌐${DEFAULT}"
 
 # makelib		:
