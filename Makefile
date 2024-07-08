@@ -84,7 +84,6 @@ BLUE		= \033[1;34m
 YELLOW		= \033[1;33m
 DARKGRAY	= \033[1;30m
 DEFAULT		= \033[0m
-
 #--- LIBRARIES AND HEADERS ---#
 
 HEADER_FILES	=	fractol.h parsing.h
@@ -92,11 +91,11 @@ HEADERS			=	$(addprefix $(INCDIR)/, $(HEADER_FILES))
 
 LIBFT_DIR		=	${LIBDIR}/libft # variable que contiene el path hacia la libft
 BUILDLIB		=	make -C ${LIBFT_DIR}
-CLEANLIB		=	make clean -C ${LIBFT_DIR}
+CLEANLIB		=	make fclean -C ${LIBFT_DIR}
 MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
 
-#LIBFT_NAME		=	libft.a
-#LIBFT_FLAGS		=	-L$(LIBFT_DIR) -lft -Wall -Wextra -Werror -g #-fsanitize=address
+# LIBFT_NAME		=	libft.a
+# LIBFT_FLAGS		=	-L$(LIBFT_DIR) -lft -Wall -Wextra -Werror -g #-fsanitize=address
 
 
 #--- COMMAND VARIABLES ---#
@@ -120,7 +119,6 @@ SRC		=	$(addprefix $(SRCDIR)/, $(SRCS))
 BIN     =	$(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRC))
 
 #--- RULES ---#
-
 $(BINDIR)/%.o	: $(SRCDIR)/%.c $(HEADERS)
 	@$(MK) $(@D)
 	@echo "${DARKGRAY}Compiling : $(@F) ... ${DEFAULT}"
@@ -135,7 +133,7 @@ all			: ${NAME}
 
 ${NAME}		: ${BIN}
 	@${BUILDLIB}
-	@$(CC) ${CFLAGS} $(LIBFT_FLAGS) $(MLX_DIR) ${BIN} -o ${NAME}		#-----------------------nuevo------------//#
+	@$(CC) ${CFLAGS} $(LIBFT_FLAGS) $(MLX_DIR) ${BIN} -o ${NAME} ${LIBFT_NAME}		#-----------------------nuevo------------//#
 	@echo "${GREEN}${NAME} successfully created. 🌐${DEFAULT}"
 
 # makelib		:
@@ -148,7 +146,7 @@ clean		:
 
 fclean		: clean
 	@${CLEANLIB}
-	@${RM} ${NAME}
+	@${RM} ${NAME} ${LIBFT_NAME}
 	@echo "${RED}Executable successfully removed 🗑${DEFAULT}"
 
 re	 		: fclean all
