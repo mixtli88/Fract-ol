@@ -6,7 +6,7 @@
 #    By: mabril <mabril@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 18:08:28 by mabril            #+#    #+#              #
-#    Updated: 2024/05/28 19:35:56 by mabril           ###   ########.fr        #
+#    Updated: 2024/07/08 19:52:12 by mabril           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC = 	ft_atoi.c		\
 		ft_memcpy.c		\
 		ft_memmove.c	\
 		ft_strncmp.c	\
-		ft_split.c
+		ft_split.c		\
+		ft_strtolowel.c
 		
 OBJ = $(SRC:.c=.o)
 

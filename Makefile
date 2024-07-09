@@ -94,10 +94,6 @@ BUILDLIB		=	make -C ${LIBFT_DIR}
 CLEANLIB		=	make fclean -C ${LIBFT_DIR}
 MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
 
-# LIBFT_NAME		=	libft.a
-# LIBFT_FLAGS		=	-L$(LIBFT_DIR) -lft -Wall -Wextra -Werror -g #-fsanitize=address
-
-
 #--- COMMAND VARIABLES ---#
 
 CC		=	gcc
@@ -114,7 +110,7 @@ BINDIR	=	bin
 
 #--- SOURCES ---#
 
-SRCS	=	main.c parsing/parsing.c
+SRCS	=	parsing/main.c parsing/parsing.c
 SRC		=	$(addprefix $(SRCDIR)/, $(SRCS))
 BIN     =	$(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRC))
 
@@ -133,7 +129,7 @@ all			: ${NAME}
 
 ${NAME}		: ${BIN}
 	@${BUILDLIB}
-	@$(CC) ${CFLAGS} $(LIBFT_FLAGS) $(MLX_DIR) ${BIN} -o ${NAME} ${LIBFT_NAME}		#-----------------------nuevo------------//#
+	@$(CC) ${CFLAGS} ${BIN} -o ${NAME} -L${LIBFT_DIR} -lft $(MLX_DIR) #-----------------------nuevo------------//#
 	@echo "${GREEN}${NAME} successfully created. 🌐${DEFAULT}"
 
 # makelib		:
