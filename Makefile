@@ -86,7 +86,7 @@ DARKGRAY	= \033[1;30m
 DEFAULT		= \033[0m
 #--- LIBRARIES AND HEADERS ---#
 
-HEADER_FILES	=	fractol.h parsing.h
+HEADER_FILES	=	fractol.h 
 HEADERS			=	$(addprefix $(INCDIR)/, $(HEADER_FILES))
 
 LIBFT_DIR		=	${LIBDIR}/libft # variable que contiene el path hacia la libft
@@ -110,7 +110,7 @@ BINDIR	=	bin
 
 #--- SOURCES ---#
 
-SRCS	=	parsing/main.c parsing/parsing.c
+SRCS	=	parsing/parsing.c
 SRC		=	$(addprefix $(SRCDIR)/, $(SRCS))
 BIN     =	$(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRC))
 
