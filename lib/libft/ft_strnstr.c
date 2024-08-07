@@ -6,11 +6,11 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 12:59:57 by mabril            #+#    #+#             */
-/*   Updated: 2024/03/15 18:25:51 by mabril           ###   ########.fr       */
+/*   Updated: 2024/07/31 19:02:17 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
