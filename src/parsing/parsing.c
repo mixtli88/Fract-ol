@@ -78,10 +78,10 @@ int main(int ac, char **av)
 	{
 		printf("\n DESPUES %d\n", db->algo_type);
 		db->mlx = mlx_init(WIDTH, HEIGHT, "MLX42",false);
-		db->img = mlx_new_image(db->mlx, WIDTH, HEIGHT);
+		db->img = mlx_new_image(db->mlx, 300, 300);
 		mlx_image_to_window(db->mlx, db->img, 0, 0);
 		mlx_put_pixel(db->img, 1, 1, -1);
-		drawCircle(db, 206, 206, 20);
+		drawCircle(db, 206, 206, 100);
 		mlx_loop(db->mlx);
 		mlx_terminate(db->mlx);
 

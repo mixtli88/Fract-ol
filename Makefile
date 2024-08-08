@@ -92,7 +92,8 @@ HEADERS			=	$(addprefix $(INCDIR)/, $(HEADER_FILES))
 LIBFT_DIR		=	${LIBDIR}/libft # variable que contiene el path hacia la libft
 BUILDLIB		=	make -C ${LIBFT_DIR}
 CLEANLIB		=	make fclean -C ${LIBFT_DIR}
-MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
+# MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
+MLX_DIR			=	 lib/MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
 
 #--- COMMAND VARIABLES ---#
 

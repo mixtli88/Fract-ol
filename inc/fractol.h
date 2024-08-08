@@ -11,6 +11,14 @@
 #define WIDTH 512
 #define HEIGHT 512
 
+typedef	struct	s_complex
+{
+	float real;
+	float i;
+
+} t_complex;
+
+
 typedef struct  s_data
 {
 	mlx_t			*mlx;
