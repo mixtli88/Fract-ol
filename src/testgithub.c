@@ -1,4 +1,4 @@
-#include "../../inc/fractol.h"
+#include "../inc/fractol.h"
 
 #define WIDTH 512
 #define HEIGHT 512

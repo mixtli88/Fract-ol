@@ -110,7 +110,8 @@ BINDIR	=	bin
 
 #--- SOURCES ---#
 
-SRCS	=	parsing/parsing.c
+# SRCS	=	cirtest.c  
+SRCS	=	main.c utils.c init.c parsing.c
 SRC		=	$(addprefix $(SRCDIR)/, $(SRCS))
 BIN     =	$(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRC))
 

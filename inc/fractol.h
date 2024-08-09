@@ -8,8 +8,8 @@
 #include "../lib/MLX42/include/MLX42/MLX42.h"
 
 
-#define WIDTH 512
-#define HEIGHT 512
+#define WIDTH 800
+#define HEIGHT 800
 
 typedef struct s_complex
 {
@@ -24,7 +24,7 @@ typedef struct  s_data
 
 	char			*name;
 	mlx_t			*mlx;
-	void			*win;
+	mlx_t			*win;
 	
 	//image//
 
@@ -33,8 +33,8 @@ typedef struct  s_data
 	
 	//
 	void			*color;
-	double			*juli_x;
-	double			*juli_y;
+	double			juli_x;
+	double			juli_y;
 	double				x;
 	double				y;
 
@@ -45,7 +45,9 @@ typedef struct  s_data
 
 } t_data;
 
-	int ft_parsing(int ac, char **av, t_data *db);
+	int ft_parsing(int ac, char **av, t_data *fractal);
+	double ft_atodbl (int i, double sig, double n, char *str);
 	char *ft_strtolowel(char *str);
-
+	void msg_error(void);
+	void fractol_init(t_data *fractal);
 #endif
