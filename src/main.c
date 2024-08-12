@@ -9,6 +9,7 @@ int main (int ac, char **av)
 	ft_parsing(ac, av, fractal);
 	printf("%s", fractal->name);
 	fractol_init(fractal);
+	fractal_render(fractal);
 	mlx_loop(fractal->mlx);
 	mlx_terminate(fractal->mlx);
 	

@@ -92,7 +92,8 @@ HEADERS			=	$(addprefix $(INCDIR)/, $(HEADER_FILES))
 LIBFT_DIR		=	${LIBDIR}/libft # variable que contiene el path hacia la libft
 BUILDLIB		=	make -C ${LIBFT_DIR}
 CLEANLIB		=	make fclean -C ${LIBFT_DIR}
-MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
+# MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
+MLX_DIR			=   lib/MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
 
 #--- COMMAND VARIABLES ---#
 
@@ -111,7 +112,7 @@ BINDIR	=	bin
 #--- SOURCES ---#
 
 # SRCS	=	cirtest.c  
-SRCS	=	main.c utils.c init.c parsing.c
+SRCS	=	main.c utils.c init.c parsing.c render.c math.c fractol.c
 SRC		=	$(addprefix $(SRCDIR)/, $(SRCS))
 BIN     =	$(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRC))
 

@@ -7,7 +7,7 @@ int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 void drawCircle(t_data *db, int centerX, int centerY, int radius) 
 {
 	int y = -radius;
-
+	printf("%d", ft_pixel(255, 90, 71, 255));
 	while (y <= radius) 
 	{
 		int x = -radius;
