@@ -21,7 +21,6 @@ void ft_zoom_out(t_data *fractal)
 }
 
 
-// #include "../lib/MLX42/include/MLX42/MLX42_Int.h"
 void fractal_render(t_data *fractal)
 {
     int x;

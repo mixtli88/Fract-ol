@@ -66,7 +66,7 @@ typedef struct  s_data
 	//test//
 	char			*str;
 	int				algo_type;
-
+	bool 			zoomin_in;
 	int				zoom_x;
 	int 			zoom_y;
 
