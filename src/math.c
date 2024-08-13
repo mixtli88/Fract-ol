@@ -1,4 +1,5 @@
 #include "../inc/fractol.h"
+// #include "../lib/MLX42/include/MLX42/MLX42_Int.h"
 
 double scale(double x, double new_max, double new_min, double old_max, double old_nim)
 {

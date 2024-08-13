@@ -1,5 +1,5 @@
 #include "../inc/fractol.h"
-
+// #include "../lib/MLX42/include/MLX42/MLX42_Int.h"
 int	ft_parsing(int ac, char **av, t_data *fractal)
 {
 	if (ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10))

@@ -59,11 +59,16 @@ typedef struct  s_data
 	double				y;
 	int				iterations;
 	double			range_frac;
-
+	double 			dim_x_min;
+	double			dim_x_max;
+	double			dim_y_min;
+	double			dim_y_max;
 	//test//
 	char			*str;
 	int				algo_type;
 
+	int				zoom_x;
+	int 			zoom_y;
 
 } t_data;
 
