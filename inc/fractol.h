@@ -69,7 +69,7 @@ typedef struct  s_data
 	bool 			zoomin_in;
 	int				zoom_x;
 	int 			zoom_y;
-
+	double			zoom_scrol;
 } t_data;
 
 	int ft_parsing(int ac, char **av, t_data *fractal);
@@ -88,6 +88,8 @@ typedef struct  s_data
 	t_complex sum_complex(t_complex z1, t_complex z2);
 	t_complex squar_complex(t_complex z);
 
-
+	void ft_hook(void *param);
+	void key_hook(void* param);
+	void scrolgit_hook(double xdelta, double ydelta, void* param);
 
 #endif

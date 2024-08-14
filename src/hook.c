@@ -1,7 +1,6 @@
 #include "../inc/fractol.h"
-// #include "../lib/MLX42/include/MLX42/MLX42_Int.h"
 
-void ft_hook(void* param)
+void key_hook(void* param)
 {
 	t_data *fractal= param;
 
@@ -27,18 +26,18 @@ void ft_hook(void* param)
 		fractal->dim_x_max -= 0.5;
 		fractal->dim_x_min -= 0.5;
 	}
-	// fractal_render(fractal);
+	fractal_render(fractal);
 }
 
-void fractol_init(t_data *fractal)
+
+void scrol_hook(double xdelta, double ydelta, void* param)
 {
-	
-	if(!(fractal->mlx = mlx_init(WIDTH, HEIGHT, fractal->name, false)))
-		exit(EXIT_SUCCESS);
-	if(!(fractal->img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT)))
-	{
-		mlx_close_window(fractal->mlx);
-		exit(EXIT_SUCCESS);
-	}
-	// mlx_image_to_window(fractal->mlx, fractal->img, 0, 0);
+	t_data *fractal= param;
+	xdelta = 0;
+	if(ydelta > 0)
+		fractal->zoom_scrol	*= 1.05;
+	else
+		fractal->zoom_scrol	/= 1.05;
+
+	fractal_render(fractal);
 }

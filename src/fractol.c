@@ -11,16 +11,16 @@ void pixel_frac(int x, int y, t_data *fractal)
     z.x = 0;
     z.y = 0;
 	
-	c.x = scale(x, fractal->dim_x_max,fractal->dim_x_min , WIDTH, 0);
-	c.y = scale(y, fractal->dim_y_min, fractal->dim_y_max,HEIGHT, 0);
+	c.x = scale(x, fractal->dim_x_max,fractal->dim_x_min , WIDTH, 0) * fractal->zoom_scrol;
+	c.y = scale(y, fractal->dim_y_max, fractal->dim_y_min, HEIGHT, 0)* fractal->zoom_scrol;
 	
-	while (i < 60)
+	while (i < 40)
 	{   
 		z = sum_complex(squar_complex(z), c);
 		
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
-			color = scale(i -5, BLUE, BLACK, 60, 0);
+			color = scale(i -5, BLUE, BLACK, 40, 0);
 			mlx_put_pixel(fractal->img, x, y, color);
 			return ;
 		}
