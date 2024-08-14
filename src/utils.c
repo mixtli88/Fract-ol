@@ -33,3 +33,39 @@ double ft_atodbl (int i, double sig, double n, char *str)
 	return(n  * sig);
 }
 
+unsigned int getNextPsychedelicColor(void* param) 
+{
+	t_data *fractal = param;
+     
+
+    // Descomponemos el color actual en sus componentes RGB
+    unsigned char r = (fractal->currentColor >> 16) & 0xFF;
+    unsigned char g = (fractal->currentColor >> 8) & 0xFF;
+    unsigned char b = fractal->currentColor & 0xFF;
+
+    // Actualizamos el componente actual del color basado en el estado
+    if (fractal->state == 0) {
+        r += 32;
+        if (r > 255) {
+            r = 0;
+            fractal->state = 1;
+        }
+    } else if (fractal->state == 1) {
+        g += 32;
+        if (g > 255) {
+            g = 0;
+            fractal->state = 2;
+        }
+    } else { // state == 2
+        b += 32;
+        if (b > 255) {
+            b = 0;
+            fractal->state = 0; // Reiniciamos el estado después de completar el ciclo
+        }
+    }
+
+    // Combinamos los componentes actualizados en un solo entero
+    unsigned int newColor = (r << 16) | (g << 8) | b;
+	// fractal_render(fractal);
+    return newColor;
+}

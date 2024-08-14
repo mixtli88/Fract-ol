@@ -30,7 +30,6 @@
 # define DARK_GRAY 0xA9A9A9FF
 
 
-
 typedef struct s_complex
 {
 	float x;
@@ -70,6 +69,9 @@ typedef struct  s_data
 	int 			zoom_y;
 	double			zoom_scrol;
 	double 			zoom_speed;
+	unsigned int currentColor;
+	int 			state;
+
 } t_data;
 
 	int ft_parsing(int ac, char **av, t_data *fractal);
@@ -95,5 +97,6 @@ typedef struct  s_data
 	void scrol_hook(double xdelta, double ydelta, void* param);
 	void loop_zoom(void* param);
 	bool are_floats_equal(float a, float b);
+	unsigned int getNextPsychedelicColor(void* param) ;
 
 #endif

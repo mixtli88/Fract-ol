@@ -4,6 +4,8 @@
 		"mlx42_int.h": "c",
 		"stdbool.h": "c",
 		"algorithm": "c",
-		"mlx42.h": "c"
+		"mlx42.h": "c",
+		"locale": "c",
+		"string": "c"
 	}
 }

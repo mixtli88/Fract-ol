@@ -4,11 +4,13 @@
 void data_init(void* param)
 {
 	t_data *fractal = param;
+
 	fractal->zoomin_in =true;
 	fractal->zoom_scrol = 1;
 	fractal->move_x = 0;
 	fractal->move_y = 0;
-	double zoom_speed = 0.2;
+	fractal->zoom_speed = 0.05;
+	fractal->state = 0;
 }
 
 
