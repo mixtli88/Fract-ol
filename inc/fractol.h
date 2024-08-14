@@ -59,10 +59,6 @@ typedef struct  s_data
 	double				y;
 	int				iterations;
 	double			range_frac;
-	double 			dim_x_min;
-	double			dim_x_max;
-	double			dim_y_min;
-	double			dim_y_max;
 	//test//
 
 	double			move_x;
@@ -73,6 +69,7 @@ typedef struct  s_data
 	int				zoom_x;
 	int 			zoom_y;
 	double			zoom_scrol;
+	double 			zoom_speed;
 } t_data;
 
 	int ft_parsing(int ac, char **av, t_data *fractal);
@@ -81,8 +78,9 @@ typedef struct  s_data
 	double ft_atodbl (int i, double sig, double n, char *str);
 	char *ft_strtolowel(char *str);
 	
+	void data_init(void* param);
 
-	void fractol_init(t_data *fractal);
+	void fractol_init_mlx(t_data *fractal);
 
 	void fractal_render(t_data *fractal);
 	void pixel_frac(int x, int y, t_data *fractal);
@@ -95,6 +93,7 @@ typedef struct  s_data
 	void key_hook(void *param);
 	// void key_hook(struct mlx_key_data key, void *param);
 	void scrol_hook(double xdelta, double ydelta, void* param);
-	
+	void loop_zoom(void* param);
+	bool are_floats_equal(float a, float b);
 
 #endif

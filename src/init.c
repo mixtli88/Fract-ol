@@ -1,16 +1,27 @@
 #include "../inc/fractol.h"
 // #include "../lib/MLX42/include/MLX42/MLX42_Int.h"
 
+void data_init(void* param)
+{
+	t_data *fractal = param;
+	fractal->zoomin_in =true;
+	fractal->zoom_scrol = 1;
+	fractal->move_x = 0;
+	fractal->move_y = 0;
+	double zoom_speed = 0.2;
+}
+
+
 void ft_hooks(void *param)
 {
 	t_data *fractal = param;
 
 	key_hook(fractal);
-	// mlx_mouse_hook(fractal->mlx, mause_hook, fractal);
 	mlx_scroll_hook(fractal->mlx, scrol_hook, fractal);
+	// mlx_mouse_hook(fractal->mlx, mause_hook, fractal);
 }
 
-void fractol_init(t_data *fractal)
+void fractol_init_mlx(t_data *fractal)
 {
 	
 	if(!(fractal->mlx = mlx_init(WIDTH, HEIGHT, fractal->name, false)))
