@@ -31,7 +31,7 @@ void update_scene(void* param)
 		fractal->dim_y_max += zoom_speed;
 		fractal->dim_y_min -= zoom_speed;
 	}
-	// fractal_render(fractal);
+	fractal_render(fractal);
 }
 
 int main (int ac, char **av)
@@ -40,16 +40,16 @@ int main (int ac, char **av)
 	
 		fractal->zoomin_in =true;
 		fractal->zoom_scrol = 1;
+		fractal->move_x = 0;
+		fractal->move_y = 0;
 		printf("%d", fractal->zoomin_in);
 		ft_parsing(ac, av, fractal);
 		fractol_init(fractal);
-		// fractal->dim_x_max = 2;
-		// fractal->dim_x_min = -2;
-		// fractal->dim_y_max = 2;
-		// fractal->dim_y_min = -2;
+		
+		// mlx_scroll_hook(fractal->mlx, scrol_hook, fractal);
 		fractal_render(fractal);
-		mlx_scroll_hook(fractal->mlx, scrol_hook, fractal);
-			// mlx_loop_hook(fractal->mlx, ft_hook, fractal);
+		// mlx_loop_hook(fractal->mlx, key_hook, fractal);
+		mlx_loop_hook(fractal->mlx, ft_hooks, fractal);
 		// mlx_loop_hook(fractal->mlx, update_scene, fractal);
 		
 		mlx_loop(fractal->mlx);

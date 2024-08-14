@@ -3,6 +3,7 @@
 		"lodepng.h": "c",
 		"mlx42_int.h": "c",
 		"stdbool.h": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"mlx42.h": "c"
 	}
 }

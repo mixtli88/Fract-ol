@@ -11,8 +11,8 @@ void pixel_frac(int x, int y, t_data *fractal)
     z.x = 0;
     z.y = 0;
 	
-	c.x = scale(x, fractal->dim_x_max,fractal->dim_x_min , WIDTH, 0) * fractal->zoom_scrol;
-	c.y = scale(y, fractal->dim_y_max, fractal->dim_y_min, HEIGHT, 0)* fractal->zoom_scrol;
+	c.x = scale(x, 2,-2 , WIDTH, 0) * fractal->zoom_scrol + fractal->move_x  ;
+	c.y = scale(y, 2, -2, HEIGHT, 0)* fractal->zoom_scrol + fractal->move_y;
 	
 	while (i < 40)
 	{   

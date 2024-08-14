@@ -1,33 +1,13 @@
 #include "../inc/fractol.h"
 // #include "../lib/MLX42/include/MLX42/MLX42_Int.h"
 
-void ft_hook(void* param)
+void ft_hooks(void *param)
 {
-	t_data *fractal= param;
+	t_data *fractal = param;
 
-	if (mlx_is_key_down(fractal->mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(fractal->mlx);
-	 if (mlx_is_key_down(fractal->mlx, MLX_KEY_UP))
-	{
-		fractal->dim_y_max += 0.5;
-		fractal->dim_y_min += 0.5;
-	}
-	 if (mlx_is_key_down(fractal->mlx, MLX_KEY_DOWN))
-	{
-		fractal->dim_y_max -= 0.5;
-		fractal->dim_y_min -= 0.5;
-	}
-	 if (mlx_is_key_down(fractal->mlx, MLX_KEY_LEFT))
-	{
-		fractal->dim_x_max += 0.5;
-		fractal->dim_x_min += 0.5;
-	}
-	 if (mlx_is_key_down(fractal->mlx, MLX_KEY_RIGHT))
-	{
-		fractal->dim_x_max -= 0.5;
-		fractal->dim_x_min -= 0.5;
-	}
-	// fractal_render(fractal);
+	key_hook(fractal);
+	// mlx_mouse_hook(fractal->mlx, mause_hook, fractal);
+	mlx_scroll_hook(fractal->mlx, scrol_hook, fractal);
 }
 
 void fractol_init(t_data *fractal)
@@ -40,5 +20,5 @@ void fractol_init(t_data *fractal)
 		mlx_close_window(fractal->mlx);
 		exit(EXIT_SUCCESS);
 	}
-	// mlx_image_to_window(fractal->mlx, fractal->img, 0, 0);
+	mlx_image_to_window(fractal->mlx, fractal->img, 0, 0);
 }

@@ -64,6 +64,9 @@ typedef struct  s_data
 	double			dim_y_min;
 	double			dim_y_max;
 	//test//
+
+	double			move_x;
+	double			move_y;
 	char			*str;
 	int				algo_type;
 	bool 			zoomin_in;
@@ -88,8 +91,10 @@ typedef struct  s_data
 	t_complex sum_complex(t_complex z1, t_complex z2);
 	t_complex squar_complex(t_complex z);
 
-	void ft_hook(void *param);
-	void key_hook(void* param);
-	void scrolgit_hook(double xdelta, double ydelta, void* param);
+	void ft_hooks(void *param);
+	void key_hook(void *param);
+	// void key_hook(struct mlx_key_data key, void *param);
+	void scrol_hook(double xdelta, double ydelta, void* param);
+	
 
 #endif
