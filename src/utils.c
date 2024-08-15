@@ -39,33 +39,33 @@ unsigned int getNextPsychedelicColor(void* param)
      
 
     // Descomponemos el color actual en sus componentes RGB
-    unsigned char r = (fractal->currentColor >> 16) & 0xFF;
-    unsigned char g = (fractal->currentColor >> 8) & 0xFF;
-    unsigned char b = fractal->currentColor & 0xFF;
+    unsigned int r = (fractal->currentColor >> 16) & 0xFF;
+    unsigned int g = (fractal->currentColor >> 8) & 0xFF;
+    unsigned int b = fractal->currentColor & 0xFF;
 
     // Actualizamos el componente actual del color basado en el estado
     if (fractal->state == 0) {
-        r += 32;
+        r += 10;
         if (r > 255) {
             r = 0;
-            fractal->state = 1;
         }
+            fractal->state = 0;
     } else if (fractal->state == 1) {
-        g += 32;
+        g += 10;
         if (g > 255) {
             g = 0;
-            fractal->state = 2;
         }
+            fractal->state = 2;
     } else { // state == 2
-        b += 32;
+        b += 10;
         if (b > 255) {
             b = 0;
-            fractal->state = 0; // Reiniciamos el estado después de completar el ciclo
         }
+            fractal->state = 1; // Reiniciamos el estado después de completar el ciclo
     }
 
     // Combinamos los componentes actualizados en un solo entero
     unsigned int newColor = (r << 16) | (g << 8) | b;
-	// fractal_render(fractal);
+    // printf("%d\n", fractal->state);
     return newColor;
 }

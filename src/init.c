@@ -11,6 +11,7 @@ void data_init(void* param)
 	fractal->move_y = 0;
 	fractal->zoom_speed = 0.05;
 	fractal->state = 0;
+	fractal->iterations = 40;
 }
 
 
