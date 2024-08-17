@@ -48,7 +48,7 @@ typedef struct  s_data
 	//image//
 
 	mlx_image_t		*img;
-	double			*zoom;
+	double			zoom;
 	
 	//
 	void			*color;
@@ -68,7 +68,7 @@ typedef struct  s_data
 	int				zoom_x;
 	int 			zoom_y;
 	double			zoom_scrol;
-	double 			zoom_speed;
+	double 			factor_zoom;
 	unsigned int currentColor;
 	int 			state;
 

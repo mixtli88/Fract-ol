@@ -6,10 +6,10 @@ void data_init(void* param)
 	t_data *fractal = param;
 
 	fractal->zoomin_in =true;
-	fractal->zoom_scrol = 1;
+	fractal->zoom = 1;
 	fractal->move_x = 0;
 	fractal->move_y = 0;
-	fractal->zoom_speed = 0.05;
+	fractal->factor_zoom = 0.05;
 	fractal->state = 0;
 	fractal->iterations = 40;
 }
