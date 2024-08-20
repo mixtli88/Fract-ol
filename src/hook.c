@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:35:32 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/19 20:03:37 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/20 11:43:38 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,6 @@ void	scrol_hook(double xdelta, double ydelta, void *param)
 	t_data	*fractal;
 
 	fractal = param;
-	int32_t x;
-	int32_t y;
-    mlx_get_mouse_pos(fractal->mlx, &x, &y);
-	int32_t relative_x = x - (WIDTH / 2);
-	if(relative_x < 0)
-		fractal->move_x += scale(relative_x, 2, -2, WIDTH, 0);
-	else if(relative_x > 0)
-		fractal->move_x = scale(relative_x, 2, -2, WIDTH, 0);
-    int32_t relative_y = y - (HEIGHT / 2);
-	if(relative_y < 0)
-		fractal->move_y -= scale(relative_x, 2, -2, WIDTH, 0);
-	else if(relative_y > 0)
-		fractal->move_y += scale(relative_x, 2, -2, WIDTH, 0);
-    
 	xdelta = 0;
 	if (ydelta > 0 && xdelta == 0)
 		fractal->zoom /= 1.05;
@@ -92,15 +78,20 @@ void	close_frac(void *param)
 	exit(EXIT_SUCCESS);
 }
 
-void int_pos(void *param) 
+void	int_pos(void *param)
 {
-	int32_t x;
-	int32_t y;
-	t_data *fractal= param;
-    mlx_get_mouse_pos(fractal->mlx, &x, &y); // Pasamos direcciones de memoria
-    if (!ft_strncmp(fractal->name, "julia", 5)) {
-        fractal->juli_x = scale(x, 2, -2, WIDTH, 0) * fractal->zoom + fractal->move_x;
-        fractal->juli_y = scale(y, 2, -2, HEIGHT, 0) * fractal->zoom + fractal->move_y;
-        fractal_render(fractal); // Redibuja el fractal
-    }
+	int32_t	x;
+	int32_t	y;
+	t_data	*fractal;
+
+	fractal = param;
+	mlx_get_mouse_pos(fractal->mlx, &x, &y);
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		fractal->juli_x = scale(x, 2, -2, WIDTH) * fractal->zoom
+			+ fractal->move_x;
+		fractal->juli_y = scale(y, 2, -2, HEIGHT) * fractal->zoom
+			+ fractal->move_y;
+		fractal_render(fractal);
+	}
 }

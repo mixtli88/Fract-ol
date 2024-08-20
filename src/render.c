@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:37:42 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/19 20:08:37 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/20 11:29:07 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	fractal_render(t_data *fractal)
 		while (++x < WIDTH)
 			pixel_frac(x, y, fractal);
 	}
-	// mlx_image_to_window(fractal->mlx, fractal->img, 0, 0);
+	mlx_image_to_window(fractal->mlx, fractal->img, 0, 0);
 }

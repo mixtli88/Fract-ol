@@ -6,7 +6,7 @@
 #    By: mabril <mabril@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 12:35:58 by mabril            #+#    #+#              #
-#    Updated: 2024/08/19 20:10:50 by mabril           ###   ########.fr        #
+#    Updated: 2024/08/20 11:13:30 by mabril           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ HEADERS			=	$(addprefix $(INCDIR)/, $(HEADER_FILES))
 LIBFT_DIR		=	${LIBDIR}/libft # variable que contiene el path hacia la libft
 BUILDLIB		=	make -C ${LIBFT_DIR}
 CLEANLIB		=	make fclean -C ${LIBFT_DIR}
-# MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
-MLX_DIR			=   lib/MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
+MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
+# MLX_DIR			=   lib/MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
 
 #--- COMMAND VARIABLES ---#
 

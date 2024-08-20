@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:36:05 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/19 20:05:44 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/20 11:41:17 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_data
 	double			zoom;
 
 	void			*color;
-	int			juli_x;
+	int				juli_x;
 	double			juli_y;
 	double			x;
 	double			y;
@@ -74,29 +74,29 @@ typedef struct s_data
 
 }					t_data;
 
-int					ft_parsing(int ac, char **av, t_data *fractal);
+int				ft_parsing(int ac, char **av, t_data *fractal);
 
-void				msg_error(void);
-double				ft_atodbl(int i, double sig, double n, char *str);
+void			msg_error(void);
+double			ft_atodbl(int i, double sig, double n, char *str);
 
-void				data_init(void *param);
-void				fractol_init(t_data *fractal);
+void			data_init(void *param);
+void			fractol_init(t_data *fractal);
 
-void				fractal_render(t_data *fractal);
-void				pixel_frac(int32_t x, int32_t y, t_data *fractal);
+void			fractal_render(t_data *fractal);
+void			pixel_frac(int32_t x, int32_t y, t_data *fractal);
 
-double				scale(int32_t x, double new_max, double new_min,
-						double old_max, double old_nim);
-t_complex			sum_complex(t_complex z1, t_complex z2);
-t_complex			squar_complex(t_complex z, void *param);
+double			scale(int32_t x, double new_max, double new_min,
+					double old_max);
+t_complex		sum_complex(t_complex z1, t_complex z2);
+t_complex		squar_complex(t_complex z, void *param);
 
-void				ft_hooks(void *param);
+void			ft_hooks(void *param);
 
-void				key_hook(void *param);
-void				scrol_hook(double xdelta, double ydelta, void *param);
-void				close_frac(void *param);
-void				loop_zoom(void *param);
-t_complex 			conjugate(t_complex z);
-void 				int_pos(void *param);
+void			key_hook(void *param);
+void			scrol_hook(double xdelta, double ydelta, void *param);
+void			close_frac(void *param);
+void			loop_zoom(void *param);
+t_complex		conjugate(t_complex z);
+void			int_pos(void *param);
 
 #endif

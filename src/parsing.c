@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 18:40:01 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/19 19:01:35 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/20 11:54:07 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int	ft_parsing(int ac, char **av, t_data *fractal)
 	}
 	else if (ac == 2 && !ft_strncmp(av[1], "ship", 5))
 	{
-		ft_putstr_fd("ship\n", 1);
-		// fractal->juli_x = ft_atodbl(-1, 1, 0, av[2]);
-		// fractal->juli_y = ft_atodbl(-1, 1, 0, av[3]);
+		ft_putstr_fd("BURNING SHIP\n", 1);
 		fractal->name = av[1];
 		return (0);
 	}
