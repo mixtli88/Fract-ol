@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/19 12:35:48 by mabril            #+#    #+#             */
+/*   Updated: 2024/08/19 20:08:18 by mabril           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/fractol.h"
 
-
-
-void fractals(t_complex *z, t_complex *c, t_data *fractal)
+void	fractals(t_complex *z, t_complex *c, t_data *fractal)
 {
-	if(!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		c->x = fractal->juli_x;
 		c->y = fractal->juli_y;
@@ -16,41 +26,31 @@ void fractals(t_complex *z, t_complex *c, t_data *fractal)
 	}
 }
 
-void pixel_frac(int x, int y, t_data *fractal) 
+void	pixel_frac(int x, int y, t_data *fractal)
 {
-    t_complex z;
-    t_complex c;
-    
-    int i = 0;
+	t_complex	z;
+	t_complex	c;
+	int			color;
+	int			i;
 
-    
-	// z.x = 0;
-    // z.y = 0;
-	
-	z.x = scale(x, 2, -2, WIDTH, 0) * fractal->zoom + fractal->move_x  ;
+	i = 0;
+	z.x = scale(x, 2, -2, WIDTH, 0) * fractal->zoom + fractal->move_x;
 	z.y = scale(y, 2, -2, HEIGHT, 0) * fractal->zoom + fractal->move_y;
-	
-
 	fractals(&z, &c, fractal);
 	while (i < fractal->iterations)
-	{   
+	{
 		z = sum_complex(squar_complex(z), c);
-		
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
-			// color = scale(i -5, BLUE, BLACK, 80, 0);
-			fractal->currentColor = scale(i -5 , BLACK, CYAN, fractal->iterations, 0);
-			mlx_put_pixel(fractal->img, x, y, getNextPsychedelicColor(fractal));
+			fractal->currentcolor = scale(i - 5, RED, BLACK,
+					fractal->iterations, 0);
+			mlx_put_pixel(fractal->img, x, y, fractal->currentcolor);
 			return ;
 		}
 		i++;
-	} 
-		
-    // color = (scale(i, -10860545, RED, 60, 0);
-
-    // mlx_put_pixel(fractal->img, x, y, color);
-
-    mlx_put_pixel(fractal->img, x, y,WHITE );
-	// mlx_put_pixel(fractal->img, x, y, WHITE);
-
+	}
+	color = scale(i, BLACK, CYAN, fractal->iterations, 0);
+	mlx_put_pixel(fractal->img, x, y, color);
 }
+
+	// mlx_put_pixel(fractal->img, x, y, fractal->currentcolor);

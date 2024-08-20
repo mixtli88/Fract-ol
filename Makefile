@@ -1,5 +1,14 @@
-
-#-------version mike----------#
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mabril <mabril@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/08/19 12:35:58 by mabril            #+#    #+#              #
+#    Updated: 2024/08/19 20:10:50 by mabril           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 #--- PROGRAM NAME ---#
 
@@ -21,8 +30,8 @@ HEADERS			=	$(addprefix $(INCDIR)/, $(HEADER_FILES))
 LIBFT_DIR		=	${LIBDIR}/libft # variable que contiene el path hacia la libft
 BUILDLIB		=	make -C ${LIBFT_DIR}
 CLEANLIB		=	make fclean -C ${LIBFT_DIR}
-# MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
-MLX_DIR			=   lib/MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
+MLX_DIR			=	-framework Cocoa -framework OpenGL -framework IOKit lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/mabril/.brew/lib"
+# MLX_DIR			=   lib/MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
 
 #--- COMMAND VARIABLES ---#
 
@@ -39,8 +48,7 @@ SRCDIR	=	src
 BINDIR	=	bin
 
 #--- SOURCES ---#
-
-# SRCS	=	cirtest.c  
+  
 SRCS	=	main.c utils.c init.c parsing.c render.c math.c fractol.c hook.c
 SRC		=	$(addprefix $(SRCDIR)/, $(SRCS))
 BIN     =	$(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRC))
@@ -51,10 +59,6 @@ $(BINDIR)/%.o	: $(SRCDIR)/%.c $(HEADERS)
 	@echo "${DARKGRAY}Compiling : $(@F) ... ${DEFAULT}"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-# # Regla para construir la libft ----------------------------------------------nuevo
-# $(LIBFT_NAME):
-# 	@$(MAKE) -C $(LIBFT_DIR)
-
 
 all			: ${NAME} 
 
@@ -63,8 +67,6 @@ ${NAME}		: ${BIN}
 	@$(CC) ${CFLAGS} ${BIN} -o ${NAME} -L${LIBFT_DIR} -lft $(MLX_DIR) #-----------------------nuevo------------//#
 	@echo "${GREEN}${NAME} successfully created. 🌐${DEFAULT}"
 
-# makelib		:
-# 	make
 
 clean		:
 	@${RM} ${BINDIR}
