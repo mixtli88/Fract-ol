@@ -19,8 +19,8 @@
 # include <math.h>
 # include <stdio.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1000
+# define HEIGHT 1000
 
 # define BLACK 0x000000FF
 # define WHITE 0xFFFFFFFF
@@ -55,7 +55,7 @@ typedef struct s_data
 	double			zoom;
 
 	void			*color;
-	double			juli_x;
+	int			juli_x;
 	double			juli_y;
 	double			x;
 	double			y;
@@ -63,6 +63,8 @@ typedef struct s_data
 
 	double			move_x;
 	double			move_y;
+	int32_t			centre_x;
+	int32_t			centre_y;
 
 	unsigned int	currentcolor;
 
@@ -81,12 +83,12 @@ void				data_init(void *param);
 void				fractol_init(t_data *fractal);
 
 void				fractal_render(t_data *fractal);
-void				pixel_frac(int x, int y, t_data *fractal);
+void				pixel_frac(int32_t x, int32_t y, t_data *fractal);
 
-double				scale(double x, double new_max, double new_min,
+double				scale(int32_t x, double new_max, double new_min,
 						double old_max, double old_nim);
 t_complex			sum_complex(t_complex z1, t_complex z2);
-t_complex			squar_complex(t_complex z);
+t_complex			squar_complex(t_complex z, void *param);
 
 void				ft_hooks(void *param);
 
@@ -94,5 +96,7 @@ void				key_hook(void *param);
 void				scrol_hook(double xdelta, double ydelta, void *param);
 void				close_frac(void *param);
 void				loop_zoom(void *param);
+t_complex 			conjugate(t_complex z);
+void 				int_pos(void *param);
 
 #endif

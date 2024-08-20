@@ -17,6 +17,7 @@ void	msg_error(void)
 	ft_putstr_fd("Error: Invalid arguments\n", 2);
 	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
 	ft_putstr_fd("Please use: ./fractol julia <x_num> <y_num>\n", 2);
+    ft_putstr_fd("Please use: ./fractol ship \n", 2);
 	exit(EXIT_FAILURE);
 }
 

@@ -26,31 +26,37 @@ void	fractals(t_complex *z, t_complex *c, t_data *fractal)
 	}
 }
 
-void	pixel_frac(int x, int y, t_data *fractal)
+void	pixel_frac(int32_t x, int32_t y, t_data *fractal)
 {
 	t_complex	z;
 	t_complex	c;
+	// t_complex	w;
+	// t_complex   tem;
 	int			color;
 	int			i;
 
 	i = 0;
+
+	x -= fractal->centre_x;
+    y -= fractal->centre_y;
+
 	z.x = scale(x, 2, -2, WIDTH, 0) * fractal->zoom + fractal->move_x;
 	z.y = scale(y, 2, -2, HEIGHT, 0) * fractal->zoom + fractal->move_y;
 	fractals(&z, &c, fractal);
-	while (i < fractal->iterations)
+	
+	while (i < fractal->iterations) 
 	{
-		z = sum_complex(squar_complex(z), c);
+		z = sum_complex(squar_complex(z, fractal), c);
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			fractal->currentcolor = scale(i - 5, RED, BLACK,
 					fractal->iterations, 0);
-			mlx_put_pixel(fractal->img, x, y, fractal->currentcolor);
+			mlx_put_pixel(fractal->img, x + fractal->centre_x, y + fractal->centre_x, fractal->currentcolor);
 			return ;
 		}
 		i++;
 	}
 	color = scale(i, BLACK, CYAN, fractal->iterations, 0);
-	mlx_put_pixel(fractal->img, x, y, color);
+	mlx_put_pixel(fractal->img,  fractal->centre_x,  fractal->centre_y, color);
 }
 
-	// mlx_put_pixel(fractal->img, x, y, fractal->currentcolor);

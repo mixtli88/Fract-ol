@@ -21,17 +21,21 @@ void	data_init(void *param)
 	fractal->zoom = 1;
 	fractal->move_x = 0;
 	fractal->move_y = 0;
-	fractal->factor_zoom = 0.5;
+	fractal->factor_zoom = 1.5;
 	fractal->iterations = 80;
+	fractal->centre_x = 0;
+	fractal->centre_y = 0;
 }
 
 void	ft_hooks(void *param)
 {
 	t_data	*fractal;
-
+	
 	fractal = param;
 	key_hook(fractal);
 	mlx_scroll_hook(fractal->mlx, scrol_hook, fractal);
+	int_pos(fractal);
+
 }
 
 void	fractol_init(t_data *fractal)
@@ -45,6 +49,6 @@ void	fractol_init(t_data *fractal)
 		mlx_close_window(fractal->mlx);
 		exit(EXIT_SUCCESS);
 	}
-	mlx_image_to_window(fractal->mlx, fractal->img, 0, 0);
+	mlx_image_to_window(fractal->mlx, fractal->img,fractal->centre_x, fractal->centre_y);
 	data_init(fractal);
 }

@@ -28,6 +28,14 @@ int	ft_parsing(int ac, char **av, t_data *fractal)
 		fractal->name = av[1];
 		return (0);
 	}
+	else if (ac == 2 && !ft_strncmp(av[1], "ship", 5))
+	{
+		ft_putstr_fd("ship\n", 1);
+		// fractal->juli_x = ft_atodbl(-1, 1, 0, av[2]);
+		// fractal->juli_y = ft_atodbl(-1, 1, 0, av[3]);
+		fractal->name = av[1];
+		return (0);
+	}
 	else
 		msg_error();
 	return (0);

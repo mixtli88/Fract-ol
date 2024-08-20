@@ -12,7 +12,7 @@
 
 #include "../inc/fractol.h"
 
-double	scale(double x, double new_max, double new_min, double old_max,
+double	scale(int32_t x, double new_max, double new_min, double old_max,
 		double old_nim)
 {
 	double	porcent;
@@ -32,11 +32,16 @@ t_complex	sum_complex(t_complex z1, t_complex z2)
 	return (result);
 }
 
-t_complex	squar_complex(t_complex z)
+t_complex	squar_complex(t_complex z, void *param)
 {
+	t_data *fractal;
 	t_complex	result;
 
+	fractal = param;
 	result.x = (z.x * z.x) - (z.y * z.y);
 	result.y = (2 * z.x * z.y);
+	if (!ft_strncmp(fractal->name, "ship", 4))
+		if (result.y < 0)
+			result.y *= -1;
 	return (result);
 }

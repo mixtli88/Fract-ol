@@ -43,6 +43,20 @@ void	scrol_hook(double xdelta, double ydelta, void *param)
 	t_data	*fractal;
 
 	fractal = param;
+	int32_t x;
+	int32_t y;
+    mlx_get_mouse_pos(fractal->mlx, &x, &y);
+	int32_t relative_x = x - (WIDTH / 2);
+	if(relative_x < 0)
+		fractal->move_x += scale(relative_x, 2, -2, WIDTH, 0);
+	else if(relative_x > 0)
+		fractal->move_x = scale(relative_x, 2, -2, WIDTH, 0);
+    int32_t relative_y = y - (HEIGHT / 2);
+	if(relative_y < 0)
+		fractal->move_y -= scale(relative_x, 2, -2, WIDTH, 0);
+	else if(relative_y > 0)
+		fractal->move_y += scale(relative_x, 2, -2, WIDTH, 0);
+    
 	xdelta = 0;
 	if (ydelta > 0 && xdelta == 0)
 		fractal->zoom /= 1.05;
@@ -57,12 +71,12 @@ void	loop_zoom(void *param)
 
 	fractal = (t_data *)param;
 	if (fractal->zoom_in == true)
-		fractal->zoom -= fractal->factor_zoom;
-	if (fractal->zoom < 0.3)
+		fractal->zoom /= fractal->factor_zoom;
+	if (fractal->zoom < 0.01)
 		fractal->zoom_in = false;
 	if (fractal->zoom_in == false)
-		fractal->zoom += fractal->factor_zoom;
-	if (fractal->zoom > 1.5)
+		fractal->zoom *= fractal->factor_zoom;
+	if (fractal->zoom > 1.8)
 		fractal->zoom_in = true;
 	fractal_render(fractal);
 }
@@ -76,4 +90,17 @@ void	close_frac(void *param)
 	mlx_close_window(fractal->mlx);
 	free(fractal);
 	exit(EXIT_SUCCESS);
+}
+
+void int_pos(void *param) 
+{
+	int32_t x;
+	int32_t y;
+	t_data *fractal= param;
+    mlx_get_mouse_pos(fractal->mlx, &x, &y); // Pasamos direcciones de memoria
+    if (!ft_strncmp(fractal->name, "julia", 5)) {
+        fractal->juli_x = scale(x, 2, -2, WIDTH, 0) * fractal->zoom + fractal->move_x;
+        fractal->juli_y = scale(y, 2, -2, HEIGHT, 0) * fractal->zoom + fractal->move_y;
+        fractal_render(fractal); // Redibuja el fractal
+    }
 }
