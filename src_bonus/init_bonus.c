@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:45:55 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 16:54:11 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/21 13:15:15 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	ft_parsing(int ac, char **av, t_data *fractal)
 	else if (ac == 4 && !ft_strncmp(av[1], "julia", 5))
 	{
 		ft_putstr_fd("JULIA\n", 1);
-		fractal->juli_x = ft_atodbl(-1, 1, 0, av[2]);
-		fractal->juli_y = ft_atodbl(-1, 1, 0, av[3]);
+		fractal->juli_x = ft_atodbl(0, 1, 0, av[2]);
+		fractal->juli_y = ft_atodbl(0, 1, 0, av[3]);
 		fractal->name = av[1];
 		return (0);
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:36:11 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/19 19:58:12 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/21 13:15:31 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int ac, char **av)
 	mlx_loop_hook(fractal->mlx, ft_hooks, fractal);
 	mlx_loop(fractal->mlx);
 	mlx_terminate(fractal->mlx);
+	free(fractal);
 	return (0);
 }

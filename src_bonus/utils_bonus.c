@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:35:41 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 11:12:44 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/21 13:15:00 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ double	ft_atodbl(int i, double sig, double n, char *str)
 	int	dc;
 
 	dc = 0;
-	if (str[++i] == '+' || str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sig = -1;
+		++i;
 	}
 	while (str[++i])
 	{
@@ -41,6 +42,7 @@ double	ft_atodbl(int i, double sig, double n, char *str)
 			dc = 1;
 		else
 			msg_error();
+		++i;
 	}
 	return (n * sig);
 }
