@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   hook_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:35:32 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 21:04:43 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/20 18:59:32 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ void	key_hook(void *param)
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_1))
 		mlx_loop_hook(fractal->mlx, loop_zoom, fractal);
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_2))
-	{
-		data_init(param);
 		fractal->zoom = 1;
-	}
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_KP_ADD))
 		fractal->iterations += 10;
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_KP_SUBTRACT))
@@ -79,4 +76,22 @@ void	close_frac(void *param)
 	mlx_close_window(fractal->mlx);
 	free(fractal);
 	exit(EXIT_SUCCESS);
+}
+
+void	int_pos(void *param)
+{
+	int32_t	x;
+	int32_t	y;
+	t_data	*fractal;
+
+	fractal = param;
+	mlx_get_mouse_pos(fractal->mlx, &x, &y);
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		fractal->juli_x = scale(x, 2, -2, WIDTH) * fractal->zoom
+			+ fractal->move_x;
+		fractal->juli_y = scale(y, 2, -2, HEIGHT) * fractal->zoom
+			+ fractal->move_y;
+		fractal_render(fractal);
+	}
 }

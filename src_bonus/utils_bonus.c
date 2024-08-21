@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:35:41 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 21:09:56 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/20 11:12:44 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	msg_error(void)
 	ft_putstr_fd("Error: Invalid arguments\n", 2);
 	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
 	ft_putstr_fd("Please use: ./fractol julia <x_num> <y_num>\n", 2);
-	// free(fractal);
+	ft_putstr_fd("Please use: ./fractol ship \n", 2);
 	exit(EXIT_FAILURE);
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 12:35:48 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 11:42:17 by mabril           ###   ########.fr       */
+/*   Created: 2024/08/19 12:37:42 by mabril            #+#    #+#             */
+/*   Updated: 2024/08/20 16:55:48 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,19 @@ void	pixel_frac(int32_t x, int32_t y, t_data *fractal)
 	}
 	color = scale(i, BLACK, CYAN, fractal->iterations);
 	mlx_put_pixel(fractal->img, x, y, color);
+}
+
+void	fractal_render(t_data *fractal)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < HEIGHT)
+	{
+		x = -1;
+		while (++x < WIDTH)
+			pixel_frac(x, y, fractal);
+	}
+	mlx_image_to_window(fractal->mlx, fractal->img, 0, 0);
 }

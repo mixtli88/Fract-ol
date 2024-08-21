@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:36:05 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 18:54:12 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/20 16:53:00 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
@@ -55,7 +55,7 @@ typedef struct s_data
 	double			zoom;
 
 	void			*color;
-	double			juli_x;
+	int				juli_x;
 	double			juli_y;
 	double			x;
 	double			y;
