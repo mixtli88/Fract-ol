@@ -6,11 +6,11 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:37:42 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 16:55:48 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/22 17:41:04 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fractol.h"
+#include "../inc/fractol_bonus.h"
 
 void	fractals(t_complex *z, t_complex *c, t_data *fractal)
 {

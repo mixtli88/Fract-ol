@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.c                                             :+:      :+:    :+:   */
+/*   math_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:35:51 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 11:39:00 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/22 17:41:02 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fractol.h"
+#include "../inc/fractol_bonus.h"
 
 double	scale(int32_t x, double new_max, double new_min, double old_max)
 {

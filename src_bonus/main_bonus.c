@@ -6,11 +6,11 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:36:11 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/21 13:15:31 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/22 17:40:59 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fractol.h"
+#include "../inc/fractol_bonus.h"
 
 int	main(int ac, char **av)
 {

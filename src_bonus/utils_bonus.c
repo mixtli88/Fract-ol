@@ -6,17 +6,17 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:35:41 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/21 13:15:00 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/22 20:05:48 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fractol.h"
+#include "../inc/fractol_bonus.h"
 
 void	msg_error(void)
 {
 	ft_putstr_fd("Error: Invalid arguments\n", 2);
 	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
-	ft_putstr_fd("Please use: ./fractol julia <x_num> <y_num>\n", 2);
+	ft_putstr_fd("Please use: ./fractol julia |-2 < x < 2|--|-2 < y < 2|\n", 2);
 	ft_putstr_fd("Please use: ./fractol ship \n", 2);
 	exit(EXIT_FAILURE);
 }
@@ -45,4 +45,17 @@ double	ft_atodbl(int i, double sig, double n, char *str)
 		++i;
 	}
 	return (n * sig);
+}
+
+void	loop_zoom_infinit(void *param)
+{
+	t_data	*fractal;
+
+	fractal = (t_data *)param;
+	if (fractal->zoom_inf_active == true)
+	{
+		if (fractal->zoom_in == true)
+			fractal->zoom /= fractal->factor_zoom;
+	}
+	fractal_render(fractal);
 }

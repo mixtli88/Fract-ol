@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:36:05 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 16:53:00 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/22 19:41:30 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef struct s_data
 
 	int				algo_type;
 	bool			zoom_in;
+	bool			zoom_active;
+	bool			zoom_inf_active;
 	double			factor_zoom;
 
 }					t_data;
@@ -96,6 +98,7 @@ void			key_hook(void *param);
 void			scrol_hook(double xdelta, double ydelta, void *param);
 void			close_frac(void *param);
 void			loop_zoom(void *param);
+void			loop_zoom_infinit(void *param);
 t_complex		conjugate(t_complex z);
 void			int_pos(void *param);
 

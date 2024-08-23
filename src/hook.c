@@ -6,7 +6,7 @@
 /*   By: mabril <mabril@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:35:32 by mabril            #+#    #+#             */
-/*   Updated: 2024/08/20 21:04:43 by mabril           ###   ########.fr       */
+/*   Updated: 2024/08/22 20:01:12 by mabril           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,8 @@ void	key_hook(void *param)
 		fractal->move_x += 0.5 * fractal->zoom;
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_RIGHT))
 		fractal->move_x -= 0.5 * fractal->zoom;
-	if (mlx_is_key_down(fractal->mlx, MLX_KEY_1))
-		mlx_loop_hook(fractal->mlx, loop_zoom, fractal);
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_2))
-	{
 		data_init(param);
-		fractal->zoom = 1;
-	}
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_KP_ADD))
 		fractal->iterations += 10;
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_KP_SUBTRACT))
@@ -51,22 +46,6 @@ void	scrol_hook(double xdelta, double ydelta, void *param)
 		fractal->zoom /= 1.05;
 	else
 		fractal->zoom *= 1.05;
-	fractal_render(fractal);
-}
-
-void	loop_zoom(void *param)
-{
-	t_data	*fractal;
-
-	fractal = (t_data *)param;
-	if (fractal->zoom_in == true)
-		fractal->zoom /= fractal->factor_zoom;
-	if (fractal->zoom < 0.01)
-		fractal->zoom_in = false;
-	if (fractal->zoom_in == false)
-		fractal->zoom *= fractal->factor_zoom;
-	if (fractal->zoom > 1.8)
-		fractal->zoom_in = true;
 	fractal_render(fractal);
 }
 
